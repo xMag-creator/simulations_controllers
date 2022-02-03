@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import roomTemperature from "../simulations/RoomTemperature";
 
 const MinMax = (props) => {
   const [min, setMin] = useState(0);
