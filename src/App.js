@@ -7,8 +7,8 @@ import ChooseMode from "./js/components/ChooseMode";
 
 import MinMax from "./js/components/controlers/MinMax";
 import P from "./js/components/controlers/P";
-import RoomTemperature from "./js/components/simulations/RoomTemperature";
-import Tempomat from "./js/components/simulations/Tempomat";
+import RoomTemperature from "./js/components/enviroments/RoomTemperature";
+import Tempomat from "./js/components/enviroments/Tempomat";
 
 function App() {
   const DELTA_TIME = 500;
