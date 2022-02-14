@@ -1,4 +1,4 @@
-import { START, STOP, TOGGLE_TIME } from "../actions/time";
+import { START, STOP, TOGGLE_TIME } from "../actions/timer";
 
 const initialState = {
     toggle: false,
@@ -16,6 +16,6 @@ const timeToggle = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 
 export default timeToggle;

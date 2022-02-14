@@ -5,14 +5,14 @@ export const STOP = 'STOP';
 let timer = null;
 export const deltaTime = 100;
 
-export const startSimulation = () => (dispatch) => {
+export const startTime = () => (dispatch) => {
     timer = setInterval(() => {
         dispatch(toggleTime());
     }, deltaTime);
     dispatch(start());
 }
 
-export const stopSimulation = () => (dispatch) => {
+export const stopTime = () => (dispatch) => {
     clearInterval(timer);
     dispatch(stop());
 }

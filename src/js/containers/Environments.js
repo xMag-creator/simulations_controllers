@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import environments from "../components/Environments";
 
-import { deltaTime } from "../redux/actions/time";
+import { deltaTime } from "../redux/actions/timer";
 import { setSensor } from "../redux/actions/simulation";
 
 const mapStateToProps = (state) => ({

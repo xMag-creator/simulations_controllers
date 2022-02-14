@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import timeToggle from "./time";
+import timeToggle from "./timer";
 import simulation from "./simulation";
 
 
