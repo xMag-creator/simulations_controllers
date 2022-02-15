@@ -7,8 +7,8 @@ import Tempomat from "./Tempomat";
 const EnvironmentsPanel = ({ deltaTime, timeToggle, actuator, onSetSensor }) => {
     return (
         <div>
-            <RoomTemperature deltaTime={deltaTime} toggle={timeToggle.toggle} heater={actuator} setTemp={onSetSensor} />
-            {/*<Tempomat deltaTime={deltaTime} toggle={timeToggle.toggle} stepOn={actuator} setSpeed={onSetSensor} />*/}
+            {/*<RoomTemperature deltaTime={deltaTime} toggle={timeToggle.toggle} heater={actuator} setTemp={onSetSensor} />*/}
+            <Tempomat deltaTime={deltaTime} toggle={timeToggle.toggle} throttle={actuator} setSpeed={onSetSensor} />
         </div>
     );
 };
