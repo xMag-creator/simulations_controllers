@@ -19,10 +19,8 @@ const PID = ({ toggle, sensor, setPower }) => {
 
     useEffect(() => {
         setP(pModule(target, sensor, enhancementP));
-        setIntegralSum(prevState => prevState + (target - sensor));
-        setI(iModule(integralSum, enhancementI));
-        setD(dModule(target-sensor, lastError, enhancementD));
-        setLastError(target-sensor);
+        setI(iModule(target, sensor, integralSum, enhancementI, setIntegralSum));
+        setD(dModule(target, sensor, lastError, enhancementD, setLastError));
         setThrottle(normalize(p + i + d));
         setPower(throttle);
     }, [toggle]);

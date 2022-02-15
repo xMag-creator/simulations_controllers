@@ -15,8 +15,7 @@ const PI = ({ toggle, sensor, setPower }) => {
 
     useEffect(() => {
         setP(pModule(target, sensor, enhancementP));
-        setIntegralSum(prevState => prevState + (target - sensor));
-        setI(iModule(integralSum, enhancementI));
+        setI(iModule(target, sensor, integralSum, enhancementI, setIntegralSum));
         setThrottle(normalize(p + i));
         setPower(throttle);
     }, [toggle]);
