@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import TimePanel from "../components/TimePanel";
 
-import { startTime, stopTime } from "../redux/actions/timer";
+import { deltaTime, startTime, stopTime } from "../redux/actions/timer";
 
 const mapStateToProps = (state) => ({
-    timeWorking: state.timeToggle.working,
+    deltaTime: deltaTime,
+    time: state.timeToggle,
 })
 
 const mapDispatchToProps = (dispatch) => ({
