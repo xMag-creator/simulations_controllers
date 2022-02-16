@@ -7,7 +7,7 @@ const TimePanel = ({ timeWorking, onStartTime, onStopTime }) => {
             <button disabled={timeWorking} onClick={onStartTime}>Start</button>
             <button disabled={!timeWorking} onClick={onStopTime}>Stop</button>
         </>
-    )
-}
+    );
+};
 
 export default TimePanel;

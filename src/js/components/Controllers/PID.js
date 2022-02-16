@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ModulePanel from "./ModulePanel";
 import PropTypes from "prop-types";
 import pModule from "../../hooks/pModule";
 import iModule from "../../hooks/iModule";
@@ -27,15 +28,10 @@ const PID = ({ toggle, sensor, setPower }) => {
 
     return (
         <>
-            <form>
-                <input value={target} onChange={event => setTarget(Number(event.target.value))}/>
-                <input value={enhancementP} onChange={event => setEnhancementP(Number(event.target.value))}/>
-                <input value={enhancementI} onChange={event => setEnhancementI(Number(event.target.value))}/>
-                <input value={enhancementD} onChange={event => setEnhancementD(Number(event.target.value))}/>
-            </form>
-            <h2>P value: {p.toFixed(2)}</h2>
-            <h2>I value: {i.toFixed(2)}</h2>
-            <h2>D value: {d.toFixed(2)}</h2>
+            <input value={target} onChange={event => setTarget(parseFloat(event.target.value))}/>
+            <ModulePanel name={"P"} value={p} enhancement={enhancementP} setEnhancement={setEnhancementP} />
+            <ModulePanel name={"I"} value={i} enhancement={enhancementI} setEnhancement={setEnhancementI} />
+            <ModulePanel name={"D"} value={d} enhancement={enhancementD} setEnhancement={setEnhancementD} />
             <h2>Throttle: {throttle.toFixed(2)}</h2>
         </>
     );

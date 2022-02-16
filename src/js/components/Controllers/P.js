@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ModulePanel from "./ModulePanel";
 import pModule from "../../hooks/pModule";
 import normalize from "../../hooks/normalize";
 import PropTypes from "prop-types";
@@ -15,10 +16,8 @@ const P = ({ toggle, sensor, setPower}) => {
 
     return (
         <>
-            <form>
-                <input value={target} onChange={event => setTarget(Number(event.target.value))}/>
-                <input value={enhancement} onChange={event => setEnhancement(Number(event.target.value))}/>
-            </form>
+            <input type={"number"} value={target} onChange={event => setTarget(parseFloat(event.target.value))}/>
+            <ModulePanel name={"P"} value={throttle} enhancement={enhancement} setEnhancement={setEnhancement} />
             <h2>Throttle: {throttle.toFixed(2)}</h2>
         </>
     );
