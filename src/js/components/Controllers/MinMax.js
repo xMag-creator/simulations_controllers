@@ -16,8 +16,8 @@ const MinMax = ({ toggle, sensor, setPower }) => {
 
     return (
         <form>
-            <input value={min} onChange={event => setMin(Number(event.target.value))}/>
-            <input value={max} onChange={event => setMax(Number(event.target.value))}/>
+            <input type={"number"} value={min} onChange={event => setMin(parseFloat(event.target.value))}/>
+            <input type={"number"} value={max} onChange={event => setMax(parseFloat(event.target.value))}/>
         </form>
     );
 };

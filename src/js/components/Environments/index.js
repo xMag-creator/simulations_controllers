@@ -5,12 +5,19 @@ import RoomTemperature from "./RoomTemperature";
 import Tempomat from "./Tempomat";
 import CookingWater from "./CookingWater";
 
-const EnvironmentsPanel = ({ deltaTime, timeToggle, actuator, onSetSensor }) => {
+const EnvironmentsPanel = ({ environment, deltaTime, timeToggle, actuator, onSetSensor }) => {
     return (
         <div>
-            {/*<RoomTemperature deltaTime={deltaTime} toggle={timeToggle.toggle} heater={actuator} setTemp={onSetSensor} />*/}
-            <Tempomat deltaTime={deltaTime} toggle={timeToggle.toggle} throttle={actuator} setSpeed={onSetSensor} />
-            {/*<CookingWater deltaTime={deltaTime} toggle={timeToggle.toggle} heater={actuator} setTemp={onSetSensor} />*/}
+            {
+                (() => {
+                    switch (environment) {
+                        case 'Room Temperature': return <RoomTemperature deltaTime={deltaTime} toggle={timeToggle.toggle} heater={actuator} setTemp={onSetSensor} />;
+                        case 'Tempomat': return <Tempomat deltaTime={deltaTime} toggle={timeToggle.toggle} throttle={actuator} setSpeed={onSetSensor} />;
+                        case 'Cooking Water': return <CookingWater deltaTime={deltaTime} toggle={timeToggle.toggle} heater={actuator} setTemp={onSetSensor} />;
+                        default: return null;
+                    }
+                })()
+            }
         </div>
     );
 };

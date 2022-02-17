@@ -1,11 +1,9 @@
 import { connect } from "react-redux";
 import controllers from "../components/Controllers";
 
-import { deltaTime } from "../redux/actions/timer";
 import { setActuator } from "../redux/actions/simulation";
 
 const mapStateToProps = (state) => ({
-    deltaTime: deltaTime,
     timeToggle: state.timeToggle,
     sensor: state.simulation.sensor,
 });

@@ -6,13 +6,20 @@ import P from "./P";
 import PI from "./PI";
 import PID from "./PID";
 
-const ControllersPanel = ({ deltaTime, timeToggle, sensor, onSetActuator }) => {
+const ControllersPanel = ({ controller, timeToggle, sensor, onSetActuator }) => {
     return (
         <div>
-            {/*<MinMax toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>*/}
-            {/*<P toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>*/}
-            {/*<PI toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>*/}
-            <PID toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>
+            {
+                (() => {
+                    switch (controller) {
+                        case 'Min/Max': return <MinMax toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>;
+                        case 'P': return <P toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>;
+                        case 'PI': return <PI toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>;
+                        case 'PID': return <PID toggle={timeToggle.toggle} sensor={sensor} setPower={onSetActuator}/>;
+                        default: return null;
+                    }
+                })()
+            }
         </div>
     );
 };

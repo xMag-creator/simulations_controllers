@@ -5,12 +5,12 @@ import Controllers from "../containers/Controllers";
 import Environments from "../containers/Environments";
 import TimePanel from "../containers/TimePanel";
 
-const Simulation = () => {
+const Simulation = ({ controller, environment }) => {
     return (
         <>
             <TimePanel />
-            <Controllers />
-            <Environments />
+            <Controllers controller={controller} />
+            <Environments environment={environment} />
         </>
     );
 };
