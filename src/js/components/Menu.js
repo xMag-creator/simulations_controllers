@@ -10,7 +10,7 @@ const Menu = ({ onSetController, onSetEnvironment }) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        if (controller === 'None' || environment === 'None') {
+        if (controller === '' || environment === '') {
             setError(true);
             return ;
         }

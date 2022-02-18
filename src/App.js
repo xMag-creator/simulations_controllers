@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import './App.css';
 
 //import store
 import store from "./js/redux/store";

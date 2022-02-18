@@ -1,3 +1,3 @@
-const environmentsList = ['None', 'Room Temperature', 'Tempomat', 'Cooking Water'];
+const environmentsList = ['', 'Room Temperature', 'Tempomat', 'Cooking Water'];
 
 export default environmentsList;
