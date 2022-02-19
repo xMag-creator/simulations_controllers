@@ -7,11 +7,11 @@ import TimePanel from "../containers/TimePanel";
 
 const Simulation = ({ controller, environment }) => {
     return (
-        <>
+        <div className="Simulation">
             <TimePanel />
             <Controllers controller={controller} />
             <Environments environment={environment} />
-        </>
+        </div>
     );
 };
 

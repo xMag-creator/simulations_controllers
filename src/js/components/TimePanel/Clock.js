@@ -10,7 +10,7 @@ const Clock = ({ deltaTime, toggle }) => {
 
     return (
         <>
-            <h1>Simulation time: {time/1000} [s]</h1>
+            <h1 className="Simulation Time">Simulation time: {time/1000} [s]</h1>
         </>
     );
 };

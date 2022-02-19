@@ -28,11 +28,14 @@ const PID = ({ toggle, sensor, setPower }) => {
 
     return (
         <>
-            <input value={target} onChange={event => setTarget(parseFloat(event.target.value))}/>
+            <div className="Simulation Controllers Target">
+                <h2>Target: </h2>
+                <input value={target} onChange={event => setTarget(parseFloat(event.target.value))}/>
+            </div>
             <ModulePanel name={"P"} value={p} enhancement={enhancementP} setEnhancement={setEnhancementP} />
             <ModulePanel name={"I"} value={i} enhancement={enhancementI} setEnhancement={setEnhancementI} />
             <ModulePanel name={"D"} value={d} enhancement={enhancementD} setEnhancement={setEnhancementD} />
-            <h2>Throttle: {throttle.toFixed(2)}</h2>
+            <h2 className="Simulation Controllers">Throttle: {throttle.toFixed(2)}</h2>
         </>
     );
 };

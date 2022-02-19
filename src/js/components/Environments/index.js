@@ -7,7 +7,7 @@ import CookingWater from "./CookingWater";
 
 const EnvironmentsPanel = ({ environment, deltaTime, timeToggle, actuator, onSetSensor }) => {
     return (
-        <div>
+        <div className="Simulation Environment">
             {
                 (() => {
                     switch (environment) {

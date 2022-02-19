@@ -15,10 +15,16 @@ const MinMax = ({ toggle, sensor, setPower }) => {
     }, [toggle]);
 
     return (
-        <form>
-            <input type={"number"} value={min} onChange={event => setMin(parseFloat(event.target.value))}/>
-            <input type={"number"} value={max} onChange={event => setMax(parseFloat(event.target.value))}/>
-        </form>
+        <>
+            <div className="Simulation Controllers Target">
+                <h2>Min: </h2>
+                <input type={"number"} value={min} onChange={event => setMin(parseFloat(event.target.value))}/>
+            </div>
+            <div className="Simulation Controllers Target">
+                <h2>Max: </h2>
+                <input type={"number"} value={max} onChange={event => setMax(parseFloat(event.target.value))}/>
+            </div>
+        </>
     );
 };
 

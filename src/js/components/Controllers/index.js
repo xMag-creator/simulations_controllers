@@ -8,7 +8,7 @@ import PID from "./PID";
 
 const ControllersPanel = ({ controller, timeToggle, sensor, onSetActuator }) => {
     return (
-        <div>
+        <div className="Simulation Controllers">
             {
                 (() => {
                     switch (controller) {

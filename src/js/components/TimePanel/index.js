@@ -4,8 +4,10 @@ import Clock from "./Clock";
 const Index = ({ deltaTime, time, onStartTime, onStopTime }) => {
     return (
         <>
-            <button disabled={time.working} onClick={onStartTime}>Start</button>
-            <button disabled={!time.working} onClick={onStopTime}>Stop</button>
+            <div className="Simulation Time Buttons">
+                <button className="Simulation Time" disabled={time.working} onClick={onStartTime}>Start</button>
+                <button className="Simulation Time" disabled={!time.working} onClick={onStopTime}>Stop</button>
+            </div>
             <Clock deltaTime={deltaTime} toggle={time.toggle} />
         </>
     );
