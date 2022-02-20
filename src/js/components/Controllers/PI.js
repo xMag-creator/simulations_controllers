@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ModulePanel from "./ModulePanel";
 import PropTypes from "prop-types";
-import pModule from "../../hooks/pModule";
-import iModule from "../../hooks/iModule";
-import normalize from "../../hooks/normalize";
+import usePModule from "../../hooks/usePModule";
+import useIModule from "../../hooks/useIModule";
+import useNormalize from "../../hooks/useNormalize";
 
 const PI = ({ toggle, sensor, setPower }) => {
     const [p, setP] = useState(0);
@@ -14,11 +14,15 @@ const PI = ({ toggle, sensor, setPower }) => {
     const [target, setTarget] = useState(50);
     const [throttle, setThrottle] = useState(0);
 
-    useEffect(() => {
-        setP(pModule(target, sensor, enhancementP));
-        setI(iModule(target, sensor, integralSum, enhancementI, setIntegralSum));
-        setThrottle(normalize(p + i));
+    const PIController = () => {
+        setP(usePModule(target, sensor, enhancementP));
+        setI(useIModule(target, sensor, integralSum, enhancementI, setIntegralSum));
+        setThrottle(useNormalize(p + i));
         setPower(throttle);
+    };
+
+    useEffect(() => {
+        PIController();
     }, [toggle]);
 
     return (

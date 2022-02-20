@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ModulePanel from "./ModulePanel";
 import PropTypes from "prop-types";
-import pModule from "../../hooks/pModule";
-import iModule from "../../hooks/iModule";
-import dModule from "../../hooks/dModule";
-import normalize from "../../hooks/normalize";
+import usePModule from "../../hooks/usePModule";
+import useIModule from "../../hooks/useIModule";
+import useDModule from "../../hooks/useDModule";
+import useNormalize from "../../hooks/useNormalize";
 
 const PID = ({ toggle, sensor, setPower }) => {
     const [p, setP] = useState(0);
@@ -18,12 +18,16 @@ const PID = ({ toggle, sensor, setPower }) => {
     const [target, setTarget] = useState(50);
     const [throttle, setThrottle] = useState(0);
 
-    useEffect(() => {
-        setP(pModule(target, sensor, enhancementP));
-        setI(iModule(target, sensor, integralSum, enhancementI, setIntegralSum));
-        setD(dModule(target, sensor, lastError, enhancementD, setLastError));
-        setThrottle(normalize(p + i + d));
+    const PIDController = () => {
+        setP(usePModule(target, sensor, enhancementP));
+        setI(useIModule(target, sensor, integralSum, enhancementI, setIntegralSum));
+        setD(useDModule(target, sensor, lastError, enhancementD, setLastError));
+        setThrottle(useNormalize(p + i + d));
         setPower(throttle);
+    };
+
+    useEffect(() => {
+        PIDController();
     }, [toggle]);
 
     return (

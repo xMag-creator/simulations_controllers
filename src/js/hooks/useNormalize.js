@@ -1,4 +1,4 @@
-const normalize = (value) => {
+const useNormalize = (value) => {
     if (value > 100) {
         return 100;
     } if (value < 0) {
@@ -8,4 +8,4 @@ const normalize = (value) => {
     }
 };
 
-export default normalize;
+export default useNormalize;

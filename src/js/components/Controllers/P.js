@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ModulePanel from "./ModulePanel";
-import pModule from "../../hooks/pModule";
-import normalize from "../../hooks/normalize";
+import usePModule from "../../hooks/usePModule";
+import useNormalize from "../../hooks/useNormalize";
 import PropTypes from "prop-types";
 
 const P = ({ toggle, sensor, setPower}) => {
@@ -9,9 +9,13 @@ const P = ({ toggle, sensor, setPower}) => {
     const [target, setTarget] = useState(50);
     const [throttle, setThrottle] = useState(0);
 
-    useEffect(() => {
-        setThrottle(normalize(pModule(target, sensor, enhancement)));
+    const PController = () => {
+        setThrottle(useNormalize(usePModule(target, sensor, enhancement)));
         setPower(throttle);
+    };
+
+    useEffect(() => {
+        PController();
     }, [toggle]);
 
     return (
